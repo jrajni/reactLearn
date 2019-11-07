@@ -1,10 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import Parent from './Parent'
+import Exams from './components/Exam';
+import {Route,link ,BrowserRouter,Switch}from 'react-router-dom'
+import NotFound from './components/Notfound'
+import Home from './components/Home'
+import Login from './components/Login'
+import StudentHome from './components/StudentHome'
+const routing=(
+    <BrowserRouter>
+ <div>
+     <Switch>
+        <Route exact path="/home" component={Home}></Route>
+    <Route exact path="/login" component={Login}></Route>
+     <Route exact path='/exams' component={Exams}></Route>
+     <Route exact path="/StudentHome" component={StudentHome}></Route>
+     <Route component={NotFound}></Route>
+     </Switch>
 
-ReactDOM.render(<Parent />, document.getElementById('root'));
-serviceWorker.unregister();
+ </div>
+    </BrowserRouter>
+)
+ReactDOM.render (routing, document.getElementById('root'));
+
